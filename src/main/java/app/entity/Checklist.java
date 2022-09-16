@@ -12,15 +12,15 @@ import cronapi.swagger.CronappSwagger;
 
 
 /**
-* Classe que representa a tabela APPLICATION_USER
+* Classe que representa a tabela CHECKLIST
 * @generated
 */
 @javax.persistence.Entity
-@javax.persistence.Table(name = "\"APPLICATION_USER\"")
+@javax.persistence.Table(name = "\"CHECKLIST\"")
 @XmlRootElement
-@CronappSecurity(post = "Administrators", get = "Administrators", delete = "Administrators", put = "Administrators")
-@JsonFilter("app.entity.ApplicationUser")
-public class ApplicationUser implements Serializable {
+@CronappSecurity
+@JsonFilter("app.entity.Checklist")
+public class Checklist implements Serializable {
     /**
     * UID da classe, necessário na serialização
     * @generated
@@ -38,26 +38,33 @@ public class ApplicationUser implements Serializable {
     /**
     * @generated
     */
-    @ManyToOne
-    @JoinColumn(name="application_id", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
+    @Column(name = "Nome_item", nullable = true, unique = false, insertable=true, updatable=true)
         
-        private Application application;
+        private java.lang.String nome_item;
+
+
+    /**
+    * @generated
+    */
+    @Column(name = "Realizado", nullable = true, unique = false, insertable=true, updatable=true)
+        
+        private java.lang.Boolean realizado;
 
 
     /**
     * @generated
     */
     @ManyToOne
-    @JoinColumn(name="user_id", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
+    @JoinColumn(name="fk_participantes", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
         
-        private User user;
+        private Participantes participantes;
 
 
     /**
     * Construtor
     * @generated
     */
-    public ApplicationUser(){
+    public Checklist(){
     }
 
     /**
@@ -74,44 +81,62 @@ public class ApplicationUser implements Serializable {
     * @param id id
     * @generated
     */
-    public ApplicationUser setId(java.lang.String id) {
+    public Checklist setId(java.lang.String id) {
         this.id = id;
         return this;
     }
     /**
-    * Obtém application
-    * return application
+    * Obtém nome_item
+    * return nome_item
     * @generated
     */
-    public Application getApplication() {
-        return this.application;
+    public java.lang.String getNome_item() {
+        return this.nome_item;
     }
 
     /**
-    * Define application
-    * @param application application
+    * Define nome_item
+    * @param nome_item nome_item
     * @generated
     */
-    public ApplicationUser setApplication(Application application) {
-        this.application = application;
+    public Checklist setNome_item(java.lang.String nome_item) {
+        this.nome_item = nome_item;
         return this;
     }
     /**
-    * Obtém user
-    * return user
+    * Obtém realizado
+    * return realizado
     * @generated
     */
-    public User getUser() {
-        return this.user;
+    public java.lang.Boolean getRealizado() {
+        return this.realizado;
     }
 
     /**
-    * Define user
-    * @param user user
+    * Define realizado
+    * @param realizado realizado
     * @generated
     */
-    public ApplicationUser setUser(User user) {
-        this.user = user;
+    public Checklist setRealizado(java.lang.Boolean realizado) {
+        this.realizado = realizado;
+        return this;
+    }
+    /**
+    * Obtém participantes
+    * return participantes
+    * @generated
+    */
+    public Participantes getParticipantes() {
+        return this.participantes;
+    }
+
+    /**
+    * Define participantes
+    * @param participantes participantes
+    * @generated
+    */
+    public Checklist setParticipantes(Participantes participantes) {
+        this.participantes = participantes;
         return this;
     }
 
@@ -122,7 +147,7 @@ public class ApplicationUser implements Serializable {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-ApplicationUser object = (ApplicationUser)obj;
+Checklist object = (Checklist)obj;
         if (id != null ? !id.equals(object.id) : object.id != null) return false;
         return true;
     }

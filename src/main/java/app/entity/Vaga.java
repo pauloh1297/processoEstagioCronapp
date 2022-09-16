@@ -12,15 +12,15 @@ import cronapi.swagger.CronappSwagger;
 
 
 /**
-* Classe que representa a tabela ROLE_SECURABLE
+* Classe que representa a tabela VAGA
 * @generated
 */
 @javax.persistence.Entity
-@javax.persistence.Table(name = "\"ROLE_SECURABLE\"")
+@javax.persistence.Table(name = "\"VAGA\"")
 @XmlRootElement
-@CronappSecurity(post = "Administrators", get = "Administrators", delete = "Administrators", put = "Administrators")
-@JsonFilter("app.entity.RoleSecurable")
-public class RoleSecurable implements Serializable {
+@CronappSecurity
+@JsonFilter("app.entity.Vaga")
+public class Vaga implements Serializable {
     /**
     * UID da classe, necessário na serialização
     * @generated
@@ -31,33 +31,41 @@ public class RoleSecurable implements Serializable {
     * @generated
     */
     @Id
-    @Column(name = "id", nullable = false, length=255, insertable=true, updatable=true)
+    @Column(name = "id", nullable = false, insertable=true, updatable=true)
         private java.lang.String id = UUID.randomUUID().toString().toUpperCase();
 
 
     /**
     * @generated
     */
-    @ManyToOne
-    @JoinColumn(name="role_id", nullable = false, referencedColumnName = "id", insertable=true, updatable=true, foreignKey = @ForeignKey(name = "ROLE_SECURABLE_ROLE_ID_ROLE_ID", foreignKeyDefinition = "FOREIGN KEY (role_id) REFERENCES ROLE (id) ON DELETE CASCADE"))
+    @Column(name = "Nome_Vaga", nullable = true, unique = false, insertable=true, updatable=true)
         
-        private Role role;
+        private java.lang.String nome_Vaga;
 
 
     /**
     * @generated
     */
     @ManyToOne
-    @JoinColumn(name="securable_id", nullable = false, referencedColumnName = "id", insertable=true, updatable=true, foreignKey = @ForeignKey(name = "ROLE_SECURABLE_SECURABLE_ID_SECURABLE_ID", foreignKeyDefinition = "FOREIGN KEY (securable_id) REFERENCES SECURABLE (id) ON DELETE CASCADE"))
+    @JoinColumn(name="fk_equipe", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
         
-        private Securable securable;
+        private Equipe equipe;
+
+
+    /**
+    * @generated
+    */
+    @ManyToOne
+    @JoinColumn(name="fk_tipo_Vaga", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
+        
+        private Tipo_Vaga tipo_Vaga;
 
 
     /**
     * Construtor
     * @generated
     */
-    public RoleSecurable(){
+    public Vaga(){
     }
 
     /**
@@ -74,44 +82,62 @@ public class RoleSecurable implements Serializable {
     * @param id id
     * @generated
     */
-    public RoleSecurable setId(java.lang.String id) {
+    public Vaga setId(java.lang.String id) {
         this.id = id;
         return this;
     }
     /**
-    * Obtém role
-    * return role
+    * Obtém nome_Vaga
+    * return nome_Vaga
     * @generated
     */
-    public Role getRole() {
-        return this.role;
+    public java.lang.String getNome_Vaga() {
+        return this.nome_Vaga;
     }
 
     /**
-    * Define role
-    * @param role role
+    * Define nome_Vaga
+    * @param nome_Vaga nome_Vaga
     * @generated
     */
-    public RoleSecurable setRole(Role role) {
-        this.role = role;
+    public Vaga setNome_Vaga(java.lang.String nome_Vaga) {
+        this.nome_Vaga = nome_Vaga;
         return this;
     }
     /**
-    * Obtém securable
-    * return securable
+    * Obtém equipe
+    * return equipe
     * @generated
     */
-    public Securable getSecurable() {
-        return this.securable;
+    public Equipe getEquipe() {
+        return this.equipe;
     }
 
     /**
-    * Define securable
-    * @param securable securable
+    * Define equipe
+    * @param equipe equipe
     * @generated
     */
-    public RoleSecurable setSecurable(Securable securable) {
-        this.securable = securable;
+    public Vaga setEquipe(Equipe equipe) {
+        this.equipe = equipe;
+        return this;
+    }
+    /**
+    * Obtém tipo_Vaga
+    * return tipo_Vaga
+    * @generated
+    */
+    public Tipo_Vaga getTipo_Vaga() {
+        return this.tipo_Vaga;
+    }
+
+    /**
+    * Define tipo_Vaga
+    * @param tipo_Vaga tipo_Vaga
+    * @generated
+    */
+    public Vaga setTipo_Vaga(Tipo_Vaga tipo_Vaga) {
+        this.tipo_Vaga = tipo_Vaga;
         return this;
     }
 
@@ -122,7 +148,7 @@ public class RoleSecurable implements Serializable {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-RoleSecurable object = (RoleSecurable)obj;
+Vaga object = (Vaga)obj;
         if (id != null ? !id.equals(object.id) : object.id != null) return false;
         return true;
     }

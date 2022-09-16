@@ -12,15 +12,15 @@ import cronapi.swagger.CronappSwagger;
 
 
 /**
-* Classe que representa a tabela ROLE_SECURABLE
+* Classe que representa a tabela STATUS_PARTICIPANTE
 * @generated
 */
 @javax.persistence.Entity
-@javax.persistence.Table(name = "\"ROLE_SECURABLE\"")
+@javax.persistence.Table(name = "\"STATUS_PARTICIPANTE\"")
 @XmlRootElement
-@CronappSecurity(post = "Administrators", get = "Administrators", delete = "Administrators", put = "Administrators")
-@JsonFilter("app.entity.RoleSecurable")
-public class RoleSecurable implements Serializable {
+@CronappSecurity
+@JsonFilter("app.entity.Status_Participante")
+public class Status_Participante implements Serializable {
     /**
     * UID da classe, necessário na serialização
     * @generated
@@ -31,33 +31,32 @@ public class RoleSecurable implements Serializable {
     * @generated
     */
     @Id
-    @Column(name = "id", nullable = false, length=255, insertable=true, updatable=true)
+    @Column(name = "id", nullable = false, insertable=true, updatable=true)
         private java.lang.String id = UUID.randomUUID().toString().toUpperCase();
 
 
     /**
     * @generated
     */
-    @ManyToOne
-    @JoinColumn(name="role_id", nullable = false, referencedColumnName = "id", insertable=true, updatable=true, foreignKey = @ForeignKey(name = "ROLE_SECURABLE_ROLE_ID_ROLE_ID", foreignKeyDefinition = "FOREIGN KEY (role_id) REFERENCES ROLE (id) ON DELETE CASCADE"))
+    @Column(name = "Nome_Status", nullable = true, unique = false, insertable=true, updatable=true)
         
-        private Role role;
+        private java.lang.String nome_Status;
 
 
     /**
     * @generated
     */
     @ManyToOne
-    @JoinColumn(name="securable_id", nullable = false, referencedColumnName = "id", insertable=true, updatable=true, foreignKey = @ForeignKey(name = "ROLE_SECURABLE_SECURABLE_ID_SECURABLE_ID", foreignKeyDefinition = "FOREIGN KEY (securable_id) REFERENCES SECURABLE (id) ON DELETE CASCADE"))
+    @JoinColumn(name="fk_checklist", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
         
-        private Securable securable;
+        private Checklist checklist;
 
 
     /**
     * Construtor
     * @generated
     */
-    public RoleSecurable(){
+    public Status_Participante(){
     }
 
     /**
@@ -74,44 +73,44 @@ public class RoleSecurable implements Serializable {
     * @param id id
     * @generated
     */
-    public RoleSecurable setId(java.lang.String id) {
+    public Status_Participante setId(java.lang.String id) {
         this.id = id;
         return this;
     }
     /**
-    * Obtém role
-    * return role
+    * Obtém nome_Status
+    * return nome_Status
     * @generated
     */
-    public Role getRole() {
-        return this.role;
+    public java.lang.String getNome_Status() {
+        return this.nome_Status;
     }
 
     /**
-    * Define role
-    * @param role role
+    * Define nome_Status
+    * @param nome_Status nome_Status
     * @generated
     */
-    public RoleSecurable setRole(Role role) {
-        this.role = role;
+    public Status_Participante setNome_Status(java.lang.String nome_Status) {
+        this.nome_Status = nome_Status;
         return this;
     }
     /**
-    * Obtém securable
-    * return securable
+    * Obtém checklist
+    * return checklist
     * @generated
     */
-    public Securable getSecurable() {
-        return this.securable;
+    public Checklist getChecklist() {
+        return this.checklist;
     }
 
     /**
-    * Define securable
-    * @param securable securable
+    * Define checklist
+    * @param checklist checklist
     * @generated
     */
-    public RoleSecurable setSecurable(Securable securable) {
-        this.securable = securable;
+    public Status_Participante setChecklist(Checklist checklist) {
+        this.checklist = checklist;
         return this;
     }
 
@@ -122,7 +121,7 @@ public class RoleSecurable implements Serializable {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-RoleSecurable object = (RoleSecurable)obj;
+Status_Participante object = (Status_Participante)obj;
         if (id != null ? !id.equals(object.id) : object.id != null) return false;
         return true;
     }

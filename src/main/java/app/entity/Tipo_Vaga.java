@@ -12,15 +12,15 @@ import cronapi.swagger.CronappSwagger;
 
 
 /**
-* Classe que representa a tabela APPLICATION_USER
+* Classe que representa a tabela TIPO_VAGA
 * @generated
 */
 @javax.persistence.Entity
-@javax.persistence.Table(name = "\"APPLICATION_USER\"")
+@javax.persistence.Table(name = "\"TIPO_VAGA\"")
 @XmlRootElement
-@CronappSecurity(post = "Administrators", get = "Administrators", delete = "Administrators", put = "Administrators")
-@JsonFilter("app.entity.ApplicationUser")
-public class ApplicationUser implements Serializable {
+@CronappSecurity
+@JsonFilter("app.entity.Tipo_Vaga")
+public class Tipo_Vaga implements Serializable {
     /**
     * UID da classe, necessário na serialização
     * @generated
@@ -38,26 +38,16 @@ public class ApplicationUser implements Serializable {
     /**
     * @generated
     */
-    @ManyToOne
-    @JoinColumn(name="application_id", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
+    @Column(name = "Nome_Tipo", nullable = true, unique = false, insertable=true, updatable=true)
         
-        private Application application;
-
-
-    /**
-    * @generated
-    */
-    @ManyToOne
-    @JoinColumn(name="user_id", nullable = true, referencedColumnName = "id", insertable=true, updatable=true)
-        
-        private User user;
+        private java.lang.String nome_Tipo;
 
 
     /**
     * Construtor
     * @generated
     */
-    public ApplicationUser(){
+    public Tipo_Vaga(){
     }
 
     /**
@@ -74,44 +64,26 @@ public class ApplicationUser implements Serializable {
     * @param id id
     * @generated
     */
-    public ApplicationUser setId(java.lang.String id) {
+    public Tipo_Vaga setId(java.lang.String id) {
         this.id = id;
         return this;
     }
     /**
-    * Obtém application
-    * return application
+    * Obtém nome_Tipo
+    * return nome_Tipo
     * @generated
     */
-    public Application getApplication() {
-        return this.application;
+    public java.lang.String getNome_Tipo() {
+        return this.nome_Tipo;
     }
 
     /**
-    * Define application
-    * @param application application
+    * Define nome_Tipo
+    * @param nome_Tipo nome_Tipo
     * @generated
     */
-    public ApplicationUser setApplication(Application application) {
-        this.application = application;
-        return this;
-    }
-    /**
-    * Obtém user
-    * return user
-    * @generated
-    */
-    public User getUser() {
-        return this.user;
-    }
-
-    /**
-    * Define user
-    * @param user user
-    * @generated
-    */
-    public ApplicationUser setUser(User user) {
-        this.user = user;
+    public Tipo_Vaga setNome_Tipo(java.lang.String nome_Tipo) {
+        this.nome_Tipo = nome_Tipo;
         return this;
     }
 
@@ -122,7 +94,7 @@ public class ApplicationUser implements Serializable {
     public boolean equals(Object obj) {
         if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
-ApplicationUser object = (ApplicationUser)obj;
+Tipo_Vaga object = (Tipo_Vaga)obj;
         if (id != null ? !id.equals(object.id) : object.id != null) return false;
         return true;
     }
