@@ -47,7 +47,6 @@
       "chkApi": false,
       "dataSource": "jdbc/main",
       "disableCache": false,
-      "generationType": "drop-and-create-tables",
       "id": "paperCell",
       "methods": [],
       "namespace": "app",
@@ -860,7 +859,7 @@
         ".uml-class-attrs-value": {
           "font-family": "\u0027Fira Sans\u0027, sans-serif",
           "font-size": 11,
-          "ref-x": 149,
+          "ref-x": 151,
           "text": "Texto\nTexto\nLógico\nParticipantes\n"
         },
         ".uml-class-methods-rect": {
@@ -1023,8 +1022,8 @@
       "modelType": "Table",
       "name": "Checklist",
       "position": {
-        "x": 1254,
-        "y": 176
+        "x": 1164,
+        "y": 218
       },
       "queries": [],
       "realName": "",
@@ -1774,7 +1773,10 @@
         "Municipio:java.lang.String",
         "vaga:Vaga",
         "status_Participante:Status_Participante",
-        "user:User"
+        "user:User",
+        "dataInicio:java.sql.Date",
+        "dataFim:java.sql.Date",
+        "calculoHora:java.lang.String"
       ],
       "attrs": {
         ".": {
@@ -1783,27 +1785,27 @@
         ".uml-class-attrs-rect": {
           "fill": "#F0F0F0",
           "font-family": "\u0027Fira Sans\u0027, sans-serif",
-          "height": 160,
+          "height": 220,
           "stroke": "#C2C2C2",
           "transform": "translate(0,40)"
         },
         ".uml-class-attrs-text": {
           "font-family": "\u0027Fira Sans\u0027, sans-serif",
           "font-size": 11,
-          "text": "* id\nNome_Completo\nIdade\nMunicipio\nvaga\nstatus_Participante\nuser\n"
+          "text": "* id\nNome_Completo\nIdade\nMunicipio\nvaga\nstatus_Participante\nuser\ndataInicio\ndataFim\ncalculoHora\n"
         },
         ".uml-class-attrs-value": {
           "font-family": "\u0027Fira Sans\u0027, sans-serif",
           "font-size": 11,
           "ref-x": 150,
-          "text": "Texto\nTexto\nInteiro\nTexto\nVaga\nStatus_Participante\nUser\n"
+          "text": "Texto\nTexto\nInteiro\nTexto\nVaga\nStatus_Participante\nUser\nData e Hora\nData e Hora\nTexto\n"
         },
         ".uml-class-methods-rect": {
           "fill": "#F0F0F0",
           "height": 20,
           "stroke": "#C2C2C2",
           "stroke-width": 1,
-          "transform": "translate(0,200)"
+          "transform": "translate(0,260)"
         },
         ".uml-class-methods-text": {
           "font-family": "\u0027Fira Sans\u0027, sans-serif",
@@ -2032,13 +2034,17 @@
           "name": "user",
           "type": "User",
           "dbName": "fk_user",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
           "label": "User",
           "mask": "",
           "isPrimaryKey": false,
           "isUniqueKey": false,
           "isNullable": true,
-          "multitenantContext": "",
           "pkType": "",
+          "multitenantContext": "",
           "jsonIgnore": false,
           "isTransient": false,
           "isInsertable": true,
@@ -2047,9 +2053,117 @@
           "passwordPolicy": "none",
           "referencedColumnName": "",
           "isSearchable": false,
+          "sequence": "",
           "isCascade": false,
           "isVersion": false,
-          "idIndex": false,
+          "storageId": "",
+          "storageKey": "",
+          "storageType": "",
+          "storageSecret": "",
+          "foreignKeyName": "",
+          "isIndex": false,
+          "useOuterJoin": false
+        },
+        {
+          "name": "dataInicio",
+          "type": "java.sql.Date",
+          "dbName": "dataInicio",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Data Inicio",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "passwordPolicy": "none",
+          "referencedColumnName": "",
+          "isSearchable": false,
+          "sequence": "",
+          "isCascade": false,
+          "isVersion": false,
+          "storageId": "",
+          "storageKey": "",
+          "storageType": "",
+          "storageSecret": "",
+          "foreignKeyName": "",
+          "isIndex": false,
+          "useOuterJoin": false
+        },
+        {
+          "name": "dataFim",
+          "type": "java.sql.Date",
+          "dbName": "dataFim",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Data Fim",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "passwordPolicy": "none",
+          "referencedColumnName": "",
+          "isSearchable": false,
+          "sequence": "",
+          "isCascade": false,
+          "isVersion": false,
+          "storageId": "",
+          "storageKey": "",
+          "storageType": "",
+          "storageSecret": "",
+          "foreignKeyName": "",
+          "isIndex": false,
+          "useOuterJoin": false
+        },
+        {
+          "name": "calculoHora",
+          "type": "java.lang.String",
+          "dbName": "calculoHora",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
+          "label": "Calculo Hora",
+          "mask": "",
+          "isPrimaryKey": false,
+          "isUniqueKey": false,
+          "isNullable": true,
+          "pkType": "",
+          "multitenantContext": "",
+          "jsonIgnore": false,
+          "isTransient": false,
+          "isInsertable": true,
+          "isUpdatable": true,
+          "isEncryption": false,
+          "passwordPolicy": "none",
+          "referencedColumnName": "",
+          "isSearchable": false,
+          "sequence": "",
+          "isCascade": false,
+          "isVersion": false,
+          "storageId": "",
+          "storageKey": "",
+          "storageType": "",
+          "storageSecret": "",
+          "foreignKeyName": "",
+          "isIndex": false,
           "useOuterJoin": false
         }
       ],
@@ -2060,8 +2174,8 @@
       "modelType": "Table",
       "name": "Participantes",
       "position": {
-        "x": 1526,
-        "y": 116
+        "x": 1484,
+        "y": 104
       },
       "queries": [],
       "realName": "",
@@ -2069,7 +2183,7 @@
       "role": "Class",
       "runtimeClass": "cronos.widgets.joint.uml.Class",
       "size": {
-        "height": 170,
+        "height": 200,
         "width": 267
       },
       "swagger": false,
@@ -2874,7 +2988,7 @@
         ".uml-class-attrs-value": {
           "font-family": "\u0027Fira Sans\u0027, sans-serif",
           "font-size": 11,
-          "ref-x": 147,
+          "ref-x": 148,
           "text": "Texto\nTexto\nChecklist\n"
         },
         ".uml-class-methods-rect": {
@@ -3003,8 +3117,8 @@
       "modelType": "Table",
       "name": "Status_Participante",
       "position": {
-        "x": 1564,
-        "y": 426
+        "x": 1522,
+        "y": 360
       },
       "queries": [],
       "realName": "",
@@ -4478,13 +4592,17 @@
           "name": "equipe",
           "type": "Equipe",
           "dbName": "fk_equipe",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
           "label": "Equipe",
           "mask": "",
           "isPrimaryKey": false,
           "isUniqueKey": false,
           "isNullable": true,
-          "multitenantContext": "",
           "pkType": "",
+          "multitenantContext": "",
           "jsonIgnore": false,
           "isTransient": false,
           "isInsertable": true,
@@ -4493,22 +4611,32 @@
           "passwordPolicy": "none",
           "referencedColumnName": "",
           "isSearchable": false,
+          "sequence": "",
           "isCascade": false,
           "isVersion": false,
-          "idIndex": false,
+          "storageId": "",
+          "storageKey": "",
+          "storageType": "",
+          "storageSecret": "",
+          "foreignKeyName": "",
+          "isIndex": false,
           "useOuterJoin": false
         },
         {
           "name": "tipo_Vaga",
           "type": "Tipo_Vaga",
           "dbName": "fk_tipo_Vaga",
+          "dbLength": "",
+          "dbPrecision": "",
+          "dbScale": "",
+          "dbDefaultValue": "",
           "label": "Tipo  Vaga",
           "mask": "",
           "isPrimaryKey": false,
           "isUniqueKey": false,
           "isNullable": true,
-          "multitenantContext": "",
           "pkType": "",
+          "multitenantContext": "",
           "jsonIgnore": false,
           "isTransient": false,
           "isInsertable": true,
@@ -4517,9 +4645,15 @@
           "passwordPolicy": "none",
           "referencedColumnName": "",
           "isSearchable": false,
+          "sequence": "",
           "isCascade": false,
           "isVersion": false,
-          "idIndex": false,
+          "storageId": "",
+          "storageKey": "",
+          "storageType": "",
+          "storageSecret": "",
+          "foreignKeyName": "",
+          "isIndex": false,
           "useOuterJoin": false
         }
       ],
@@ -4530,8 +4664,8 @@
       "modelType": "Table",
       "name": "Vaga",
       "position": {
-        "x": 1802,
-        "y": 156
+        "x": 1812,
+        "y": 136
       },
       "queries": [],
       "realName": "",
@@ -5942,69 +6076,6 @@
       ],
       "groupPositions": [
         {
-          "idCell": "b194a533-61d6-4661-b9da-ff80ce2835f9",
-          "position": {
-            "x": 70,
-            "y": 240
-          }
-        },
-        {
-          "idCell": "53b97115-f8a3-4221-9ce6-bad2672b8bd5",
-          "position": {
-            "x": 418,
-            "y": 594
-          }
-        },
-        {
-          "idCell": "fabe0aea-c05d-44a4-a87c-2e2c0a97e994",
-          "position": {
-            "x": 382,
-            "y": 36
-          }
-        },
-        {
-          "idCell": "dcc00b32-aa33-47bd-bc4d-91da88f25cbc",
-          "position": {
-            "x": 656,
-            "y": 312
-          }
-        },
-        {
-          "idCell": "4cbe47fe-4f4b-43e9-960b-4b5cc2633aef",
-          "position": {
-            "x": 404,
-            "y": 342
-          }
-        },
-        {
-          "idCell": "2b76b50a-bb57-4354-a653-b71b1450ebff",
-          "position": {
-            "x": 144,
-            "y": 530
-          }
-        },
-        {
-          "idCell": "2016ad54-a0f9-4337-ad10-694a48f0435c",
-          "position": {
-            "x": 684,
-            "y": 26
-          }
-        },
-        {
-          "idCell": "e35a650f-29ee-4683-8c1c-5cc61a955ddf",
-          "position": {
-            "x": 668,
-            "y": 594
-          }
-        },
-        {
-          "idCell": "56d9e678-741d-41e6-9b24-bccc58de1598",
-          "position": {
-            "x": 1106,
-            "y": 406
-          }
-        },
-        {
           "idCell": "d92238a3-a37d-4cc6-a543-d0687dc207cd",
           "position": {
             "x": 100,
@@ -6019,10 +6090,101 @@
           }
         },
         {
+          "idCell": "3b4c3d50-e5d0-4fd0-9fd5-98097c81d09b",
+          "position": {
+            "x": 1164,
+            "y": 218
+          }
+        },
+        {
+          "idCell": "53b97115-f8a3-4221-9ce6-bad2672b8bd5",
+          "position": {
+            "x": 418,
+            "y": 594
+          }
+        },
+        {
+          "idCell": "2016ad54-a0f9-4337-ad10-694a48f0435c",
+          "position": {
+            "x": 684,
+            "y": 26
+          }
+        },
+        {
+          "idCell": "dcc00b32-aa33-47bd-bc4d-91da88f25cbc",
+          "position": {
+            "x": 656,
+            "y": 312
+          }
+        },
+        {
+          "idCell": "a6accdef-dcb1-4dbd-98be-d0508f17eda3",
+          "position": {
+            "x": 1484,
+            "y": 104
+          }
+        },
+        {
+          "idCell": "719a962b-0fdb-4913-9324-fa00f9dfddfa",
+          "position": {
+            "x": 1522,
+            "y": 360
+          }
+        },
+        {
+          "idCell": "4cbe47fe-4f4b-43e9-960b-4b5cc2633aef",
+          "position": {
+            "x": 404,
+            "y": 342
+          }
+        },
+        {
           "idCell": "fbe4a477-8332-4235-a9a2-5db4a56fa3d0",
           "position": {
             "x": 984,
             "y": 38
+          }
+        },
+        {
+          "idCell": "56d9e678-741d-41e6-9b24-bccc58de1598",
+          "position": {
+            "x": 1106,
+            "y": 406
+          }
+        },
+        {
+          "idCell": "fabe0aea-c05d-44a4-a87c-2e2c0a97e994",
+          "position": {
+            "x": 382,
+            "y": 36
+          }
+        },
+        {
+          "idCell": "e35a650f-29ee-4683-8c1c-5cc61a955ddf",
+          "position": {
+            "x": 668,
+            "y": 594
+          }
+        },
+        {
+          "idCell": "6e44fb78-875a-4cb0-aed5-c09a4dcdb515",
+          "position": {
+            "x": 1812,
+            "y": 136
+          }
+        },
+        {
+          "idCell": "b194a533-61d6-4661-b9da-ff80ce2835f9",
+          "position": {
+            "x": 70,
+            "y": 240
+          }
+        },
+        {
+          "idCell": "2b76b50a-bb57-4354-a653-b71b1450ebff",
+          "position": {
+            "x": 144,
+            "y": 530
           }
         }
       ]

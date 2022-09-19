@@ -87,6 +87,32 @@ public class Participantes implements Serializable {
 
 
     /**
+    * @generated
+    */
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "dataInicio", nullable = true, unique = false, insertable=true, updatable=true)
+        
+        private java.util.Date dataInicio;
+
+
+    /**
+    * @generated
+    */
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "dataFim", nullable = true, unique = false, insertable=true, updatable=true)
+        
+        private java.util.Date dataFim;
+
+
+    /**
+    * @generated
+    */
+    @Column(name = "calculoHora", nullable = true, unique = false, insertable=true, updatable=true)
+        
+        private java.lang.String calculoHora;
+
+
+    /**
     * Construtor
     * @generated
     */
@@ -217,6 +243,60 @@ public class Participantes implements Serializable {
     */
     public Participantes setUser(User user) {
         this.user = user;
+        return this;
+    }
+    /**
+    * Obtém dataInicio
+    * return dataInicio
+    * @generated
+    */
+    public java.util.Date getDataInicio() {
+        return this.dataInicio;
+    }
+
+    /**
+    * Define dataInicio
+    * @param dataInicio dataInicio
+    * @generated
+    */
+    public Participantes setDataInicio(java.util.Date dataInicio) {
+        this.dataInicio = dataInicio;
+        return this;
+    }
+    /**
+    * Obtém dataFim
+    * return dataFim
+    * @generated
+    */
+    public java.util.Date getDataFim() {
+        return this.dataFim;
+    }
+
+    /**
+    * Define dataFim
+    * @param dataFim dataFim
+    * @generated
+    */
+    public Participantes setDataFim(java.util.Date dataFim) {
+        this.dataFim = dataFim;
+        return this;
+    }
+    /**
+    * Obtém calculoHora
+    * return calculoHora
+    * @generated
+    */
+    public java.lang.String getCalculoHora() {
+        return this.calculoHora;
+    }
+
+    /**
+    * Define calculoHora
+    * @param calculoHora calculoHora
+    * @generated
+    */
+    public Participantes setCalculoHora(java.lang.String calculoHora) {
+        this.calculoHora = calculoHora;
         return this;
     }
 

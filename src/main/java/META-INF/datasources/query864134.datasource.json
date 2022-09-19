@@ -1,0 +1,147 @@
+{
+  "customId": "query864134",
+  "queryName": "usuarioLogado",
+  "sourceType": "entityFullName",
+  "baseEntity": null,
+  "blockly": null,
+  "entitySimpleName": "Participantes",
+  "entityFullName": "app.entity.Participantes",
+  "query": {
+    "isValid": true,
+    "isEmpty": false,
+    "operationType": "object",
+    "type": "select",
+    "rulesEntity": [
+      {
+        "entity": "Participantes",
+        "namespace": "app.entity.Participantes",
+        "alias": "p"
+      }
+    ],
+    "rulesSelect": [
+      {
+        "func": "get",
+        "field": "p",
+        "type": "string"
+      }
+    ],
+    "rulesGroupBy": [],
+    "rulesHaving": [],
+    "rulesOrderBy": [],
+    "rules": {
+      "condition": "AND",
+      "rules": [
+        {
+          "id": "p.user.normalizedUserName",
+          "field": "p.user.normalizedUserName",
+          "type": "string",
+          "input": "text",
+          "operator": "equal",
+          "value": ":userNormalizedUserName",
+          "valueIsField": false
+        }
+      ],
+      "not": false,
+      "valid": true
+    },
+    "isRawSql": false,
+    "multiTenant": false,
+    "paginatorAutomatic": false,
+    "pagination": false
+  },
+  "queryParamsValues": [
+    {
+      "fieldName": "userNormalizedUserName",
+      "fieldValue": {
+        "blocklyClass": "blockly.Usuario",
+        "blocklyMethod": "ObterLogin",
+        "blocklyLanguage": "java",
+        "blocklyParams": [
+          {
+            "name": "Entidade\u003capp.entity.Participantes\u003e",
+            "value": "data",
+            "type": "CUSTOM"
+          }
+        ],
+        "blocklyJson": {
+          "namespace": "blockly.Usuario",
+          "sourcePath": "src/main/java/blockly/usuario.blockly",
+          "language": "java",
+          "class": "blockly.Usuario",
+          "methods": [
+            {
+              "name": "ObterLogin",
+              "hasReturn": "true",
+              "params": [
+                "Entidade\u003capp.entity.Participantes\u003e"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "verbs": {
+    "GET": true,
+    "GETAuthorities": null,
+    "POST": true,
+    "POSTAuthorities": null,
+    "PUT": true,
+    "PUTAuthorities": null,
+    "DELETE": true,
+    "DELETEAuthorities": null,
+    "FILTER": true,
+    "FILTERAuthorities": null,
+    "COUNT": true,
+    "COUNTAuthorities": null
+  },
+  "events": {
+    "beforeInsert": null,
+    "beforeUpdate": null,
+    "beforeDelete": null,
+    "afterInsert": null,
+    "afterUpdate": null,
+    "afterDelete": null,
+    "onNavigate": null,
+    "onAuthorize": null,
+    "onError": null
+  },
+  "defaultValues": {
+    "id": null,
+    "nome_Completo": null,
+    "idade": null,
+    "municipio": null,
+    "vaga": null,
+    "status_Participante": null,
+    "user": null
+  },
+  "defaultValuesProperties": {
+    "id": null,
+    "nome_Completo": null,
+    "idade": null,
+    "municipio": null,
+    "vaga": null,
+    "status_Participante": null,
+    "user": null
+  },
+  "security": {
+    "id": null,
+    "nome_Completo": null,
+    "idade": null,
+    "municipio": null,
+    "vaga": null,
+    "status_Participante": null,
+    "user": null
+  },
+  "calcFields": {},
+  "calcFieldsSecurity": {},
+  "calcFieldsProperties": {},
+  "headers": {},
+  "errorHandles": {
+    "primaryKey": null,
+    "foreignKey": null
+  },
+  "serviceUrl": "api/cronapi/odata/v2/app/query864134/",
+  "audit": false,
+  "swagger": false
+}
