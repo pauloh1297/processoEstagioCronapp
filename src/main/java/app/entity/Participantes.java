@@ -107,9 +107,10 @@ public class Participantes implements Serializable {
     /**
     * @generated
     */
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "calculoHora", nullable = true, unique = false, insertable=true, updatable=true)
         
-        private java.lang.String calculoHora;
+        private java.util.Date calculoHora;
 
 
     /**
@@ -286,7 +287,7 @@ public class Participantes implements Serializable {
     * return calculoHora
     * @generated
     */
-    public java.lang.String getCalculoHora() {
+    public java.util.Date getCalculoHora() {
         return this.calculoHora;
     }
 
@@ -295,7 +296,7 @@ public class Participantes implements Serializable {
     * @param calculoHora calculoHora
     * @generated
     */
-    public Participantes setCalculoHora(java.lang.String calculoHora) {
+    public Participantes setCalculoHora(java.util.Date calculoHora) {
         this.calculoHora = calculoHora;
         return this;
     }
